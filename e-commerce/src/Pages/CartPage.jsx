@@ -22,9 +22,17 @@ export default function CartPage() {
         {cartItems.map((item) => (
           <div className="col-md-12 mb-3" key={item.id}>
             <div className="d-flex justify-content-between align-items-center border p-3">
-              <div>
-                <h5>{item.title}</h5>
-                <p>${item.price.toFixed(2)}</p>
+              <div className="d-flex align-items-center">
+                <img
+                  src={item.thumbnail} // Display product image
+                  alt={item.title}
+                  style={{ width: "80px", height: "80px", objectFit: "cover", marginRight: "15px" }}
+                />
+                <div>
+                  <h5>{item.title}</h5>
+                  <p>Price: ${item.price.toFixed(2)}</p> {/* Display product price */}
+                  <p>Total: ${(item.price * item.quantity).toFixed(2)}</p> {/* Display total cost */}
+                </div>
               </div>
               <div className="d-flex align-items-center">
                 <button
